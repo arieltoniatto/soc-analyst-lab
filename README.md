@@ -28,6 +28,7 @@ Regras de Detecção e Resposta foram criadas baseadas no malware, e as regras s
   No sistema atacante foi usado o SSH para acessar a máquina e instalado o Sliver, que é um framework de Command & Control (C2).
 <br />
 <br />
+ 
 <h3>Criação do payload</h3> <br/>
   No Ubuntu, foi criado o payload usando o Sliver e com um servidor HTTP temporário para que fosse possível baixá-lo no Windows através do PowerShell e executá-lo. Feito isso, deu-se início a sessão de C2.
   <img src="https://i.imgur.com/40TWH8r.png" height="80%" width="80%" alt="Sliver Payload"/>
@@ -43,14 +44,32 @@ Regras de Detecção e Resposta foram criadas baseadas no malware, e as regras s
   
 <br />
 <br />
+
 <h3>Dump de credenciais</h3> <br/>
-  Através do Sliver, foi realizado o dump de credenciais lsass. Isso possibilitou a análise do evento no LimaCharlie. Durante a análise, foi criada uma regra de detecção e resposta (D&R) na detecção de SENSITIVE_PROCESS_ACCESS com o processo terminando com lsass.exe e gerando um relatório. Com essas informações foi possível criar um conjunto de regras de Detecção e Resposta para alertar quando esse tipo de ataque ocorrer.
+  Através do Sliver, foi realizado o dump de credenciais lsass.
   <img src="https://i.imgur.com/v1ffc5O.png" height="80%" width="80%" alt="Credential dump"/>
+
+   Isso possibilitou a análise do evento no LimaCharlie.
   <img src="https://i.imgur.com/1C7AxNb.png" height="80%" width="80%" alt="Report Sensitive Process Access"/>
+  
+  Durante a análise, foi criada uma regra de detecção e resposta (D&R) na detecção de SENSITIVE_PROCESS_ACCESS com o processo terminando com lsass.exe e gerando um relatório. 
   <img src="https://i.imgur.com/Mngjz70.png" height="80%" width="80%" alt="D&R rule lssas"/>
 <br />
 <br />
-<h3></h3> <br/>
+
+<h3>Ataque ao Volume Shadow e Contramedidas</h3> <br/>
+  Foi feito um ataque visando deletar todas as cópias do Volume Shadow. Como o VSS é usado para a recuperação de dados, é muito comum que um ataque de ransomware vise esse serviço.
+  <img src="https://i.imgur.com/R2zXzYU.png" height="80%" width="80%" alt="D&R rule lssas"/>
+
+  O ataque foi identificado pelo EDR e, a partir disso, foi criada uma regra para detectar a atividade em vssadmin.exe em conjunto com o comando Delete Shadows /All. Também foi criada uma resposta para reportar essa atividade e matar o processo pai responsável.
+  <img src="https://i.imgur.com/nj3xXSk.png" height="80%" width="80%" alt="D&R rule lssas"/>
+  <img src="https://i.imgur.com/6BmzZXI.png" height="80%" width="80%" alt="D&R rule lssas"/>
+<br />
+<br />
+
+<h3>Conclusão</h3>
+  A simulação de ataques reais é uma ferramenta valiosa para melhorar a cibersegurança. Através dela, as organizações podem testar suas defesas e identificar pontos fracos.
+  Neste caso, a simulação permitiu que eu desenvolvesse novas regras de detecção e resposta que podem ajudar a proteger as organizações contra ataques reais.
 
 <!--
  ```diff
