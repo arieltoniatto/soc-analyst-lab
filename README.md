@@ -3,7 +3,7 @@
 ### [So you want to be a SOC Analyst?](https://blog.ecapuano.com/p/so-you-want-to-be-a-soc-analyst-part)
 
 <h2>Descrição</h2>
-Esse projeto fornece experiência prática do cilco de vida de um incidente de segurança. A demonstração começa com a criação de um Ubuntu Server como adversário e um Windows 11 como vítima usando VMWare. Feito isso, cria-se o malware, infectando a VM do Windows, e feita a análise dos logs da máquina infectada no EDR LimaCharlie.
+Esse projeto fornece experiência prática do ciclo de vida de um incidente de segurança. A demonstração começa com a criação de um Ubuntu Server como adversário e um Windows 11 como vítima usando VMWare. Feito isso, cria-se o malware, infectando a VM do Windows, e feita a análise dos logs da máquina infectada no EDR LimaCharlie.
 Regras de Detecção e Resposta foram criadas baseadas no malware, e as regras são aperfeiçoadas para prevenir falsos positivos.
 
 <br />
