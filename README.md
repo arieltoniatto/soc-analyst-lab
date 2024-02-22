@@ -44,11 +44,13 @@ Regras de Detecção e Resposta foram criadas baseadas no malware, e as regras s
 <br />
 <br />
 <h3>Dump de credenciais</h3> <br/>
-  Através do Sliver, foi realizado o dump de credenciais lsass. Isso possibilitou a análise do evento no LimaCharlie. Durante a análise, foi criada uma regra de detecção e resposta (D&R) na detecção de SENSITIVE_PROCESS_ACCESS com o processo terminando com lsass.exe e gerando um relatório.
+  Através do Sliver, foi realizado o dump de credenciais lsass. Isso possibilitou a análise do evento no LimaCharlie. Durante a análise, foi criada uma regra de detecção e resposta (D&R) na detecção de SENSITIVE_PROCESS_ACCESS com o processo terminando com lsass.exe e gerando um relatório. Com essas informações foi possível criar um conjunto de regras de Detecção e Resposta para alertar quando esse tipo de ataque ocorrer.
   <img src="https://i.imgur.com/v1ffc5O.png" height="80%" width="80%" alt="Credential dump"/>
   <img src="https://i.imgur.com/1C7AxNb.png" height="80%" width="80%" alt="Report Sensitive Process Access"/>
+  <img src="https://i.imgur.com/Mngjz70.png" height="80%" width="80%" alt="D&R rule lssas"/>
 <br />
 <br />
+<h3></h3> <br/>
 
 <!--
  ```diff
