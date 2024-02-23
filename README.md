@@ -10,7 +10,8 @@ Regras de Detecção e Resposta foram criadas baseadas no malware, e as regras s
 
 
 <h2>Utilitários usados</h2>
- 
+
+- <b>VMWare</b>
 - <b>PowerShell</b>
 - <b>Sliver</b>
 - <b>LimaCharlie</b>
